@@ -381,13 +381,36 @@ export default function Settings() {
                 </div>
                 <div>
                   <span className="text-muted-foreground">Developer</span>
-                  <p className="font-medium">Quickpyx Team</p>
+                  <p className="font-medium">Aryan Pandey</p>
                 </div>
                 <div>
                   <span className="text-muted-foreground">Last Updated</span>
                   <p className="font-medium">
                     {new Date(settings.updatedAt!).toLocaleDateString()}
                   </p>
+                </div>
+              </div>
+              
+              {/* Developer Attribution */}
+              <div className="pt-4 border-t bg-gradient-to-r from-primary/5 via-transparent to-primary/5 rounded-lg p-4 -mx-2">
+                <div className="text-center">
+                  <div className="flex items-center justify-center space-x-2 mb-2">
+                    <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                    <span className="text-xs font-mono text-muted-foreground tracking-wider">
+                      CRAFTED WITH PASSION
+                    </span>
+                    <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                  </div>
+                  <div className="flex items-center justify-center space-x-1">
+                    <span className="text-sm text-muted-foreground">Developed & Managed by</span>
+                    <span className="font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+                      ARYAN PANDEY
+                    </span>
+                    <span className="text-primary">⚡</span>
+                  </div>
+                  <div className="mt-1 text-xs text-muted-foreground font-mono">
+                    &lt;/&gt; Building the future, one app at a time
+                  </div>
                 </div>
               </div>
               

@@ -270,6 +270,20 @@ export default function Home() {
             <p className="text-xs mt-1">AdMob Integration Ready</p>
           </div>
         </div>
+
+        {/* Developer Attribution Footer */}
+        <div className="mt-8 text-center py-4 border-t border-border/50">
+          <div className="flex items-center justify-center space-x-2 text-xs text-muted-foreground">
+            <span>Made with</span>
+            <span className="text-red-500 animate-pulse">♥</span>
+            <span>by</span>
+            <span className="font-semibold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+              Aryan Pandey
+            </span>
+            <span className="opacity-50">|</span>
+            <span className="font-mono text-[10px]">v1.0.0</span>
+          </div>
+        </div>
       </main>
 
       {/* FAB */}
