@@ -13,7 +13,7 @@
   --card-foreground: hsl(29, 16%, 13%);
   --border: hsl(20, 6%, 90%);
   --input: hsl(20, 6%, 90%);
-  --primary: hsl(262, 42%, 51%);
+  --primary: hsl(217, 91%, 60%);
   --primary-foreground: hsl(0, 0%, 100%);
   --secondary: hsl(60, 5%, 96%);
   --secondary-foreground: hsl(24, 10%, 10%);
@@ -21,15 +21,15 @@
   --accent-foreground: hsl(24, 10%, 10%);
   --destructive: hsl(0, 84%, 60%);
   --destructive-foreground: hsl(60, 9%, 98%);
-  --ring: hsl(29, 16%, 13%);
+  --ring: hsl(217, 91%, 60%);
   --radius: 0.5rem;
   
   /* Material 3 specific colors */
-  --md3-primary: hsl(262, 42%, 51%);
+  --md3-primary: hsl(217, 91%, 60%);
   --md3-on-primary: hsl(0, 0%, 100%);
-  --md3-secondary: hsl(247, 17%, 45%);
+  --md3-secondary: hsl(214, 84%, 56%);
   --md3-on-secondary: hsl(0, 0%, 100%);
-  --md3-tertiary: hsl(320, 22%, 41%);
+  --md3-tertiary: hsl(210, 98%, 78%);
   --md3-surface: hsl(0, 0%, 100%);
   --md3-on-surface: hsl(29, 16%, 13%);
   --md3-outline: hsl(247, 8%, 49%);
@@ -61,11 +61,11 @@
   --ring: hsl(240, 5%, 84%);
   
   /* Material 3 dark colors */
-  --md3-primary: hsl(269, 100%, 74%);
-  --md3-on-primary: hsl(262, 100%, 22%);
-  --md3-secondary: hsl(269, 100%, 74%);
-  --md3-on-secondary: hsl(262, 100%, 22%);
-  --md3-tertiary: hsl(320, 100%, 74%);
+  --md3-primary: hsl(217, 100%, 80%);
+  --md3-on-primary: hsl(217, 100%, 15%);
+  --md3-secondary: hsl(214, 100%, 75%);
+  --md3-on-secondary: hsl(214, 100%, 20%);
+  --md3-tertiary: hsl(210, 100%, 85%);
   --md3-surface: hsl(240, 10%, 4%);
   --md3-on-surface: hsl(230, 13%, 91%);
   --md3-outline: hsl(247, 8%, 49%);
@@ -150,15 +150,15 @@
   }
   
   .category-chip {
-    background: hsl(262, 42%, 51%, 0.1);
+    background: hsl(217, 91%, 60%, 0.1);
     color: var(--md3-primary);
-    border: 1px solid hsl(262, 42%, 51%, 0.2);
+    border: 1px solid hsl(217, 91%, 60%, 0.2);
   }
   
   .dark .category-chip {
-    background: hsl(269, 100%, 74%, 0.2);
+    background: hsl(217, 100%, 80%, 0.2);
     color: var(--md3-primary);
-    border: 1px solid hsl(269, 100%, 74%, 0.3);
+    border: 1px solid hsl(217, 100%, 80%, 0.3);
   }
   
   .navigation-item {
@@ -167,12 +167,12 @@
   
   .navigation-item.active {
     color: var(--md3-primary);
-    background: hsl(262, 42%, 51%, 0.1);
+    background: hsl(217, 91%, 60%, 0.1);
   }
   
   .dark .navigation-item.active {
     color: var(--md3-primary);
-    background: hsl(269, 100%, 74%, 0.2);
+    background: hsl(217, 100%, 80%, 0.2);
   }
   
   .slide-in {
