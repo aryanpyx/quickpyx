@@ -187,12 +187,24 @@ export default function Settings() {
       <header className="bg-card shadow-sm px-4 py-3 flex items-center justify-between border-b">
         <div className="flex items-center space-x-3">
           <SettingsIcon className="w-6 h-6 text-primary" />
-          <h1 className="text-xl font-medium">Settings</h1>
+          <div>
+            <h1 className="text-xl font-medium">Settings</h1>
+            <p className="text-sm text-primary font-bold">BY ARYAN PANDEY</p>
+          </div>
         </div>
       </header>
 
       {/* Main Content */}
       <main className="pb-20 px-4">
+        {/* Developer Banner */}
+        <div className="py-4">
+          <div className="bg-gradient-to-r from-primary to-blue-600 text-white p-6 rounded-xl shadow-lg text-center">
+            <h1 className="text-3xl font-bold mb-2">🚀 ARYAN PANDEY 🚀</h1>
+            <p className="text-lg opacity-90">Developer & Creator</p>
+            <p className="text-sm opacity-80 mt-2">Building amazing apps with passion</p>
+          </div>
+        </div>
+        
         {/* Profile Section */}
         <div className="py-6">
           <Card>
@@ -403,7 +415,7 @@ export default function Settings() {
                   </div>
                   <div className="flex items-center justify-center space-x-1">
                     <span className="text-sm text-muted-foreground">Developed & Managed by</span>
-                    <span className="font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+                    <span className="font-bold text-primary text-lg">
                       ARYAN PANDEY
                     </span>
                     <span className="text-primary">⚡</span>
