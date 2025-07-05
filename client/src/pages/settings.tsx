@@ -187,10 +187,7 @@ export default function Settings() {
       <header className="bg-card shadow-sm px-4 py-3 flex items-center justify-between border-b">
         <div className="flex items-center space-x-3">
           <SettingsIcon className="w-6 h-6 text-primary" />
-          <div>
-            <h1 className="text-xl font-medium">Settings</h1>
-            <p className="text-sm text-primary font-bold">BY ARYAN PANDEY</p>
-          </div>
+          <h1 className="text-xl font-medium">Settings</h1>
         </div>
       </header>
 

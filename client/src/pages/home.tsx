@@ -152,10 +152,7 @@ export default function Home() {
           <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
             <span className="text-primary-foreground font-bold">Q</span>
           </div>
-          <div>
-            <h1 className="text-xl font-medium">Quickpyx</h1>
-            <p className="text-xs text-primary font-bold">BY ARYAN PANDEY</p>
-          </div>
+          <h1 className="text-xl font-medium">Quickpyx</h1>
         </div>
         <div className="flex items-center space-x-2">
           <Button
