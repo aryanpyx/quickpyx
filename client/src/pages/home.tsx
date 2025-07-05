@@ -22,6 +22,13 @@ import { useToast } from "@/hooks/use-toast";
 import type { Note, InsertNote } from "@shared/schema";
 import { z } from "zod";
 
+// AdSense initialization
+declare global {
+  interface Window {
+    adsbygoogle: any[];
+  }
+}
+
 const formSchema = insertNoteSchema.extend({
   reminderDate: z.string().optional(),
 });
@@ -33,6 +40,17 @@ export default function Home() {
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
   const [editingNote, setEditingNote] = useState<Note | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
+
+  // Initialize AdSense
+  useEffect(() => {
+    try {
+      if (typeof window !== "undefined" && window.adsbygoogle) {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      }
+    } catch (error) {
+      console.error("AdSense initialization error:", error);
+    }
+  }, []);
 
   const { data: notes = [], isLoading } = useQuery<Note[]>({
     queryKey: ["/api/notes"],
@@ -270,14 +288,20 @@ export default function Home() {
           )}
         </div>
 
-        {/* AdMob Banner Placeholder */}
-        <div className="mt-8 p-4 bg-muted/50 rounded-lg border border-dashed border-muted-foreground/25">
-          <div className="text-center text-muted-foreground">
-            <div className="w-8 h-8 mx-auto mb-2 bg-muted-foreground/10 rounded flex items-center justify-center">
-              📱
-            </div>
-            <p className="text-sm">Advertisement Space</p>
-            <p className="text-xs mt-1">AdMob Integration Ready</p>
+        {/* Google AdSense Banner */}
+        <div className="mt-8">
+          <div className="text-center mb-2">
+            <span className="text-xs text-muted-foreground">Advertisement</span>
+          </div>
+          <div className="bg-muted/20 rounded-lg border border-muted-foreground/20 overflow-hidden">
+            <ins
+              className="adsbygoogle"
+              style={{ display: "block" }}
+              data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+              data-ad-slot="1234567890"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            />
           </div>
         </div>
 
