@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { insertReminderSchema } from "@shared/schema";
@@ -93,6 +94,7 @@ export default function Reminders() {
     defaultValues: {
       title: "",
       description: "",
+      priority: "medium",
       scheduledDate: format(addHours(new Date(), 1), "yyyy-MM-dd'T'HH:mm"),
     },
   });
@@ -151,6 +153,38 @@ export default function Reminders() {
     }
   };
 
+  const getPriorityConfig = (priority: string) => {
+    switch (priority) {
+      case "high":
+        return {
+          icon: "🔴",
+          label: "High Priority",
+          bgColor: "bg-red-50 dark:bg-red-950/20",
+          borderColor: "border-red-200 dark:border-red-800",
+          textColor: "text-red-700 dark:text-red-300",
+          badgeColor: "bg-red-100 text-red-700 dark:bg-red-900/20 dark:text-red-300"
+        };
+      case "low":
+        return {
+          icon: "🟢",
+          label: "Low Priority",
+          bgColor: "bg-green-50 dark:bg-green-950/20",
+          borderColor: "border-green-200 dark:border-green-800",
+          textColor: "text-green-700 dark:text-green-300",
+          badgeColor: "bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-300"
+        };
+      default: // medium
+        return {
+          icon: "🟡",
+          label: "Medium Priority",
+          bgColor: "bg-yellow-50 dark:bg-yellow-950/20",
+          borderColor: "border-yellow-200 dark:border-yellow-800",
+          textColor: "text-yellow-700 dark:text-yellow-300",
+          badgeColor: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/20 dark:text-yellow-300"
+        };
+    }
+  };
+
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     const reminderData: InsertReminder = {
       ...data,
@@ -169,6 +203,7 @@ export default function Reminders() {
     form.reset({
       title: reminder.title,
       description: reminder.description || "",
+      priority: reminder.priority || "medium",
       scheduledDate: format(new Date(reminder.scheduledDate), "yyyy-MM-dd'T'HH:mm"),
     });
     setIsCreateDialogOpen(true);
@@ -282,8 +317,9 @@ export default function Reminders() {
               <div className="space-y-3">
                 {activeReminders.map((reminder) => {
                   const timeStatus = getTimeStatus(reminder.scheduledDate.toString());
+                  const priorityConfig = getPriorityConfig(reminder.priority || "medium");
                   return (
-                    <Card key={reminder.id} className="hover:shadow-md transition-shadow">
+                    <Card key={reminder.id} className={`hover:shadow-md transition-shadow ${priorityConfig.bgColor} ${priorityConfig.borderColor} border-l-4`}>
                       <CardContent className="p-4">
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
@@ -293,6 +329,11 @@ export default function Reminders() {
                                 className="text-xs"
                               >
                                 {timeStatus.label}
+                              </Badge>
+                              <Badge 
+                                className={`text-xs ${priorityConfig.badgeColor}`}
+                              >
+                                {priorityConfig.icon} {priorityConfig.label}
                               </Badge>
                               <span className="text-xs text-muted-foreground">
                                 {format(new Date(reminder.scheduledDate), "MMM d, yyyy 'at' h:mm a")}
@@ -443,18 +484,42 @@ export default function Reminders() {
                 )}
               />
 
-              <FormField
-                control={form.control}
-                name="scheduledDate"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Scheduled Date & Time</FormLabel>
-                    <FormControl>
-                      <Input type="datetime-local" {...field} />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
+              <div className="grid grid-cols-2 gap-4">
+                <FormField
+                  control={form.control}
+                  name="priority"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Priority</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select priority" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="high">🔴 High</SelectItem>
+                          <SelectItem value="medium">🟡 Medium</SelectItem>
+                          <SelectItem value="low">🟢 Low</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="scheduledDate"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Date & Time</FormLabel>
+                      <FormControl>
+                        <Input type="datetime-local" {...field} />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+              </div>
 
               <div className="flex justify-end space-x-2">
                 <Button

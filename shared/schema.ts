@@ -30,6 +30,7 @@ export const reminders = pgTable("reminders", {
   title: text("title").notNull(),
   description: text("description"),
   scheduledDate: timestamp("scheduled_date").notNull(),
+  priority: text("priority").notNull().default("medium"), // high, medium, low
   isCompleted: boolean("is_completed").default(false),
   notificationSent: boolean("notification_sent").default(false),
   createdAt: timestamp("created_at").defaultNow(),

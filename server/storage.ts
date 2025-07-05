@@ -162,6 +162,7 @@ export class MemStorage implements IStorage {
     const reminder: Reminder = {
       ...insertReminder,
       id,
+      priority: insertReminder.priority || "medium",
       createdAt: now,
     };
     this.reminders.set(id, reminder);
