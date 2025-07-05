@@ -31,15 +31,15 @@ function App() {
           <Router />
           
           {/* Developer Attribution Badge */}
-          <div className="fixed top-4 right-4 z-50">
-            <div className="bg-background/90 backdrop-blur-sm border border-border/50 rounded-full px-3 py-1 shadow-lg">
-              <div className="flex items-center space-x-2 text-xs">
+          <div className="fixed top-2 right-2 z-[100] pointer-events-none">
+            <div className="bg-background/95 backdrop-blur-sm border-2 border-primary/20 rounded-full px-4 py-2 shadow-2xl">
+              <div className="flex items-center space-x-2 text-sm font-medium">
                 <div className="w-2 h-2 bg-gradient-to-r from-primary to-blue-600 rounded-full animate-pulse"></div>
-                <span className="font-mono text-muted-foreground">by</span>
-                <span className="font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+                <span className="text-muted-foreground">by</span>
+                <span className="font-bold text-primary">
                   ARYAN PANDEY
                 </span>
-                <span className="text-primary">⚡</span>
+                <span className="text-primary animate-bounce">⚡</span>
               </div>
             </div>
           </div>

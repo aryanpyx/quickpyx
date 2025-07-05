@@ -152,7 +152,10 @@ export default function Home() {
           <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
             <span className="text-primary-foreground font-bold">Q</span>
           </div>
-          <h1 className="text-xl font-medium">Quickpyx</h1>
+          <div>
+            <h1 className="text-xl font-medium">Quickpyx</h1>
+            <p className="text-xs text-primary font-bold">BY ARYAN PANDEY</p>
+          </div>
         </div>
         <div className="flex items-center space-x-2">
           <Button
@@ -176,6 +179,16 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="pb-20 px-4">
+        {/* Developer Attribution Banner */}
+        <div className="py-4">
+          <div className="bg-gradient-to-r from-primary to-blue-600 text-white p-4 rounded-lg shadow-lg">
+            <div className="text-center">
+              <h2 className="text-2xl font-bold mb-2">🚀 DEVELOPED BY ARYAN PANDEY 🚀</h2>
+              <p className="text-sm opacity-90">Building the future, one app at a time</p>
+            </div>
+          </div>
+        </div>
+        
         {/* Quick Stats */}
         <div className="py-6 space-y-4">
           <div className="grid grid-cols-2 gap-4">
