@@ -230,18 +230,23 @@ export default function Reminders() {
           <Clock className="w-6 h-6 text-primary" />
           <h1 className="text-xl font-medium">Reminders</h1>
         </div>
-        <Button
-          onClick={() => setIsCreateDialogOpen(true)}
-          className="rounded-full"
-          size="sm"
-        >
-          <Plus className="w-4 h-4 mr-2" />
-          New
-        </Button>
+        {/* Move the New button from here */}
       </header>
 
       {/* Main Content */}
       <main className="pb-20 px-4">
+        {/* Add the button here, for example, after the Stats section */}
+        <div className="flex justify-end mt-4">
+          <Button
+            onClick={() => setIsCreateDialogOpen(true)}
+            className="rounded-full"
+            size="sm"
+          >
+            <Plus className="w-4 h-4 mr-2" />
+            New
+          </Button>
+        </div>
+
         {/* Stats */}
         <div className="py-6">
           <div className="grid grid-cols-2 gap-4">

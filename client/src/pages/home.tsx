@@ -172,7 +172,23 @@ export default function Home() {
           </div>
           <h1 className="text-xl font-medium">Quickpyx</h1>
         </div>
-        <div className="flex items-center space-x-2">
+        {/* The search and theme toggle buttons were moved below */}
+      </header>
+
+      {/* Main Content */}
+      <main className="pb-20 px-4">
+        {/* Developer Attribution Banner */}
+        <div className="py-4 mt-4">
+          <div className="bg-gradient-to-r from-primary to-blue-600 text-white p-4 rounded-lg shadow-lg">
+            <div className="text-center">
+              <h2 className="text-2xl font-bold mb-2">🚀 DEVELOPED BY ARYAN PANDEY 🚀</h2>
+              <p className="text-sm opacity-90">Building the future, one app at a time</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* Moved Search and Theme Toggle Buttons */}
+        <div className="flex items-center space-x-2 justify-end mt-4">
           <Button
             variant="ghost"
             size="icon"
@@ -190,20 +206,7 @@ export default function Home() {
             {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>
         </div>
-      </header>
 
-      {/* Main Content */}
-      <main className="pb-20 px-4">
-        {/* Developer Attribution Banner */}
-        <div className="py-4">
-          <div className="bg-gradient-to-r from-primary to-blue-600 text-white p-4 rounded-lg shadow-lg">
-            <div className="text-center">
-              <h2 className="text-2xl font-bold mb-2">🚀 DEVELOPED BY ARYAN PANDEY 🚀</h2>
-              <p className="text-sm opacity-90">Building the future, one app at a time</p>
-            </div>
-          </div>
-        </div>
-        
         {/* Quick Stats */}
         <div className="py-6 space-y-4">
           <div className="grid grid-cols-2 gap-4">

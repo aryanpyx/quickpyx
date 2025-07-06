@@ -37,6 +37,7 @@ const currencies = [
   { value: "EUR", label: "Euro", symbol: "€" },
   { value: "GBP", label: "British Pound", symbol: "£" },
   { value: "JPY", label: "Japanese Yen", symbol: "¥" },
+  { value: "INR", label: "Indian Rupee", symbol: "₹" },
 ];
 
 export default function Expenses() {
@@ -175,18 +176,23 @@ export default function Expenses() {
           <Wallet className="w-6 h-6 text-primary" />
           <h1 className="text-xl font-medium">Expenses</h1>
         </div>
-        <Button
-          onClick={() => setIsCreateDialogOpen(true)}
-          className="rounded-full"
-          size="sm"
-        >
-          <Plus className="w-4 h-4 mr-2" />
-          Add
-        </Button>
+        {/* Move the Add button from here */}
       </header>
 
       {/* Main Content */}
       <main className="pb-20 px-4">
+        {/* Add the button here, for example, after the Monthly Overview section */}
+        <div className="flex justify-end mt-4">
+          <Button
+            onClick={() => setIsCreateDialogOpen(true)}
+            className="rounded-full"
+            size="sm"
+          >
+            <Plus className="w-4 h-4 mr-2" />
+            Add
+          </Button>
+        </div>
+
         {/* Monthly Overview */}
         <div className="py-6">
           <Card className="expense-card text-white">
